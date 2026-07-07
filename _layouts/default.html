@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.url == "/" %}{{ site.title }} — {{ site.tagline }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+  <meta name="theme-color" content="#1c1e21">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if page.url == "/" %}{{ site.title }} — {{ site.tagline }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/og-image.png' | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% if page.url == "/" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ryan Moch",
+    "url": "{{ site.url }}/",
+    "jobTitle": "Principal Platform Engineer",
+    "worksFor": { "@type": "Organization", "name": "Surescripts" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Portland", "addressRegion": "OR", "addressCountry": "US" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Oregon State University" },
+    "sameAs": [
+      "{{ site.linkedin }}",
+      "{{ site.github }}",
+      "https://www.printables.com/@mochery",
+      "https://makerworld.com/en/@mochery"
+    ]
+  }
+  </script>
+  {% endif %}
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">Ryan Moch</a>
+      <div class="nav-links">
+        <a href="{{ '/' | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+        <a href="{{ '/experience/' | relative_url }}" {% if page.url == "/experience/" %}aria-current="page"{% endif %}>Experience</a>
+        <a href="{{ '/interests/' | relative_url }}" {% if page.url == "/interests/" %}aria-current="page"{% endif %}>Interests</a>
+      </div>
+    </div>
+  </nav>
+
+  {% if page.hero %}
+  <header class="hero">
+    {% if page.hero.image %}
+    <img class="hero-photo" src="{{ page.hero.image | relative_url }}" alt="Headshot of {{ page.hero.name }}" width="200" height="200">
+    {% endif %}
+    <div class="hero-text">
+      <h1>{{ page.hero.name }}</h1>
+      <p class="hero-tagline">{{ page.hero.tagline }}</p>
+      <p class="hero-meta">{{ page.hero.meta }}</p>
+    </div>
+  </header>
+  {% endif %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="{{ site.linkedin }}" rel="me noopener">LinkedIn</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ site.github }}" rel="me noopener">GitHub</a>
+    </div>
+    <p class="footer-note">© {{ site.time | date: "%Y" }} Ryan Moch</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+title: Ryan Moch
+tagline: Principal Platform Engineer
+description: >-
+  Ryan Moch, Principal Platform Engineer in the Portland, Oregon area.
+  Operations, DevOps, and development, with a home shop full of
+  microcontrollers, servers, and half-finished ideas.
+url: "https://ryanmoch.com"
+baseurl: ""
+linkedin: https://www.linkedin.com/in/ryanmoch/
+github: https://github.com/mochery
+
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
