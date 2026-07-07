@@ -7,7 +7,7 @@ description: >-
   3D printing and CAD, CLI tooling, and web development.
 ---
 
-# Interests
+## Interests
 
 Outside of work, most of my free time ends up at the workbench or in the
 homelab. It's where I learn: new technologies get tried here first, and these
